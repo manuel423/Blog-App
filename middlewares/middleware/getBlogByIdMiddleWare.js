@@ -1,7 +1,7 @@
-const Blog = require("../models/blog");
+const Blog = require("../../models/blog");
 
 module.exports = {
-  getBlog: async (req, res, next) =>{
+  getBlog: async (req, res, next) => {
     try {
       const blog = await Blog.findById(req.params.id);
       if (blog == null) {

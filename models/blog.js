@@ -1,21 +1,30 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const blogSchema = new Schema({
   title: {
     type: String,
-    required: true
+    required: true,
   },
   content: {
     type: String,
-    required: true
+    required: true,
   },
   author: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true
+    ref: "User",
+    required: true,
   },
-  
+  like: {
+    type: Number,
+    default: 0,
+  },
+  view: {
+    type: Number,
+    default: 0,
+  },
 });
 
-module.exports = mongoose.model('Blog', blogSchema);
+blogSchema.set("timestamps", true);
+
+module.exports = mongoose.model("Blog", blogSchema);
