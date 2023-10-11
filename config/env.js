@@ -1,7 +1,7 @@
-const JWT_SECRET = "123456"
-const MongoDB_URL = "mongodb+srv://blogapp:7CygvYRooIDv5MUX@cluster0.wgalki3.mongodb.net/blogapp?retryWrites=true&w=majority"
+const JWT_SECRET = process.env.JWT_SECRET;
+const MongoDB_URL = process.env.MONGODB_URL;
 
 module.exports = {
-    JWT_SECRET,
-    MongoDB_URL
-}
+  JWT_SECRET,
+  MongoDB_URL,
+};

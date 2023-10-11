@@ -1,7 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 const User = require("../../models/user");
-const JWT_SECRET = require("../../config/env").JWT_SECRET
 
 const hashPasword = async (password) => {
   return new Promise((resolve, reject) => {
@@ -76,7 +75,7 @@ module.exports = {
           {
             user: tmp_user_obj,
           },
-          JWT_SECRET,
+          process.env.JWT_SECRET,
           (err, token) => {
             if (err) {
               return res.status(500).json({

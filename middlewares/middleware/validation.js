@@ -1,5 +1,4 @@
 const jwt = require("jsonwebtoken");
-const JWT_SECRET = require("../../config/env").JWT_SECRET;
 
 const getUser = (req) => {
   const bearerHeader = req.headers["authorization"];
@@ -64,6 +63,8 @@ const validateToken = (req, res, next) => {
   if (typeof bearerHeader !== "undefined") {
     const bearer = bearerHeader.split(" ");
     const token = bearer[1];
+    const JWT_SECRET = process.env.JWT_SECRET;
+
     jwt.verify(token, JWT_SECRET, async (err, authData) => {
       if (err) {
         //console.log("Invalid Token 1")
