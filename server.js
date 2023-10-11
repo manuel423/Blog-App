@@ -18,6 +18,9 @@ const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+app.get("/", (req, res) => {
+  res.send("Welcome to my Blog App! use /api/v1 to access the endpoints");
+});
 // Define routes
 app.use("/api/v1", routeAPI);
 
